@@ -57,6 +57,16 @@
      <property name="title">
       <string>Player 2</string>
      </property>
+     <widget class="QLineEdit" name="p2_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>113</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QGroupBox" name="player1_groupBox">
      <property name="geometry">
@@ -70,6 +80,62 @@
      <property name="title">
       <string>Player 1</string>
      </property>
+     <widget class="QLineEdit" name="p1_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>113</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="player3_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>30</y>
+       <width>161</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Player 3</string>
+     </property>
+     <widget class="QLineEdit" name="p3_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>113</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="player4_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>30</y>
+       <width>161</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Player 4</string>
+     </property>
+     <widget class="QLineEdit" name="p4_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>113</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
