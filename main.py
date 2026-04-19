@@ -30,7 +30,6 @@ def main():
     app.exec()
 
     serial_thread.stop()
-    serial_thread.join()
 
 
 if __name__ == '__main__':

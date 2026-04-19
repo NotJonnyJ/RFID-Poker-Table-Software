@@ -4,7 +4,7 @@ from BuildUI import Ui_Dialog
 from enum import Enum, auto
 from port_scanner import assign_port
 
-UI_SPEED = 1000
+UI_SPEED = 200
 
 class State(Enum):
     IDLE = auto()
@@ -43,11 +43,17 @@ class UIThread(QDialog):
             case State.READ:
                 update = self.get_update()
                 if update:
-                    print(update)
+                    print(f"update {update}")
+                    self.ui.p1_lineEdit.setText(str(update))
+
+
+                else:
+                    print("No update")
                 self.state = State.IDLE
 
     def get_update(self):
 
         while not self.incoming_data.empty():
             update = self.incoming_data.get()
+            print(update)
             return update

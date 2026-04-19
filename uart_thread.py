@@ -1,9 +1,12 @@
-from asyncio import Event
+import threading
+import time
+from dataclasses import dataclass
 
 import serial
 from PySide6.QtCore import QThread
 from enum import Enum, auto
 from port_scanner import assign_port
+
 
 class State(Enum):
     IDLE = auto()
@@ -14,8 +17,7 @@ class UART_Thread(QThread):
     def __init__(self, context):
         super().__init__()
 
-        self.stop = Event()
-        self.stop.clear()
+        self._stop_event = threading.Event()
 
         self.incoming_data = context.incoming_data_queue
         self.outgoing_data = context.outgoing_data_queue
@@ -23,9 +25,6 @@ class UART_Thread(QThread):
         self.port = assign_port()
 
         self.baudrate = 9600
-
-
-        self.run()
 
 
     def run(self):
@@ -38,21 +37,27 @@ class UART_Thread(QThread):
             parity = serial.PARITY_NONE,
             stopbits = serial.STOPBITS_ONE,
             bytesize = serial.EIGHTBITS,
-            timeout = 1,
+            timeout = 0.3,
         )
 
-        while not self.stop.is_set():
+        while not self._stop_event.is_set():
+
+
             match state:
                 case State.IDLE:
                     self.state = State.RX
 
                 case State.RX:
-
                     if ser.in_waiting:
-                        message = ser.read()
-                        self.incoming_data.put(message)
-                    
+                        # data = ser.read(ser.in_waiting)
+                        data = ser.read(1)
+                        if data[0] == 0xaa:
+                            self.incoming_data.put(data)
+                        # print(f"data {data}")
 
+
+                    else:
+                        time.sleep(0.01)
                     self.state = State.IDLE
 
 
@@ -61,4 +66,4 @@ class UART_Thread(QThread):
 
 
     def stop(self):
-        self.stop.set()
+        self._stop_event.set()
