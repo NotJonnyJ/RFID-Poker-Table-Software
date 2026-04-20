@@ -24,6 +24,8 @@ class UIThread(QDialog):
         self.setup_ui_state_machine()
         self.port = assign_port()
 
+
+
     def setup_ui_state_machine(self):
         self.state = State.IDLE
         self.next_state = None
@@ -43,12 +45,26 @@ class UIThread(QDialog):
             case State.READ:
                 update = self.get_update()
                 if update:
-                    print(f"update {update}")
-                    self.ui.p1_lineEdit.setText(str(update))
+                    sync = update[0:3]
+                    command = update[3]
+                    data = update[4:8]
+                    p1_c1 = hex(data[0])
+                    p1_c2 = hex(data[1])
+                    p2_c1 = hex(data[2])
+                    p2_c2 = hex(data[3])
+                    checksum = hex(update[8])
+                    print(checksum)
 
 
-                else:
-                    print("No update")
+                    print(f"Sync: {sync}")
+                    print(f"Command: {hex(command)}")
+                    print(f"Data: {[hex(b) for b in data]}")
+                    print(f"Checksum: {checksum}")
+                    self.ui.p1_lineEdit.setText(f"{p1_c1, p1_c2}")
+                    self.ui.p2_lineEdit.setText(f"{p2_c1, p2_c2}")
+                    self.ui.p3_lineEdit.setText(hex(command))
+
+
                 self.state = State.IDLE
 
     def get_update(self):

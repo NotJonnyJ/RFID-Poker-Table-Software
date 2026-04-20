@@ -1,5 +1,7 @@
 import threading
 import time
+from array import array
+from collections import deque
 from dataclasses import dataclass
 
 import serial
@@ -26,10 +28,15 @@ class UART_Thread(QThread):
 
         self.baudrate = 9600
 
+        self.rx_buffer = bytearray()
+        self.start_byte_found = False
+        self.packet_size = 9
+
+
 
     def run(self):
 
-        state = State.IDLE      # Initial State
+        self.state = State.IDLE      # Initial State
 
         ser = serial.Serial(
             port = self.port,
@@ -43,25 +50,36 @@ class UART_Thread(QThread):
         while not self._stop_event.is_set():
 
 
-            match state:
+            match self.state:
                 case State.IDLE:
                     self.state = State.RX
 
                 case State.RX:
+
                     if ser.in_waiting:
                         # data = ser.read(ser.in_waiting)
-                        data = ser.read(1)
-                        if data[0] == 0xaa:
-                            self.incoming_data.put(data)
-                        # print(f"data {data}")
+                        byte = ser.read(1)
+                        if byte == b"\x01":
+                            self.start_byte_found = True
 
+                        if self.start_byte_found:
+                            self.rx_buffer += byte
+
+                            if len(self.rx_buffer) >= self.packet_size:
+                                packet = self.rx_buffer[:self.packet_size]
+                                self.rx_buffer = self.rx_buffer[self.packet_size:]
+
+                                self.handle_packet(packet)
 
                     else:
                         time.sleep(0.01)
                     self.state = State.IDLE
 
+    def handle_packet(self, packet: bytes):
 
 
+        self.incoming_data.put(packet)
+        self.start_byte_found = False
 
 
 
