@@ -30,7 +30,7 @@ class UART_Thread(QThread):
 
         self.rx_buffer = bytearray()
         self.start_byte_found = False
-        self.packet_size = 9
+        self.packet_size = 22
 
 
 
@@ -49,7 +49,6 @@ class UART_Thread(QThread):
 
         while not self._stop_event.is_set():
 
-
             match self.state:
                 case State.IDLE:
                     self.state = State.RX
@@ -58,8 +57,9 @@ class UART_Thread(QThread):
 
                     if ser.in_waiting:
                         # data = ser.read(ser.in_waiting)
-                        byte = ser.read(1)
-                        if byte == b"\x01":
+                        byte = ser.read()
+
+                        if byte == b"\xAA":
                             self.start_byte_found = True
 
                         if self.start_byte_found:
@@ -68,8 +68,9 @@ class UART_Thread(QThread):
                             if len(self.rx_buffer) >= self.packet_size:
                                 packet = self.rx_buffer[:self.packet_size]
                                 self.rx_buffer = self.rx_buffer[self.packet_size:]
-
+                                print(f"Packet received: {packet}")
                                 self.handle_packet(packet)
+
 
                     else:
                         time.sleep(0.01)

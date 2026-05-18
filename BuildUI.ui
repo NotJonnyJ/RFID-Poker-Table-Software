@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1133</width>
-    <height>686</height>
+    <width>1221</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>650</y>
+     <x>290</x>
+     <y>710</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -34,60 +34,84 @@
     <rect>
      <x>20</x>
      <y>30</y>
-     <width>1091</width>
-     <height>601</height>
+     <width>1191</width>
+     <height>671</height>
     </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
    </property>
    <property name="currentIndex">
     <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
+    <attribute name="icon">
+     <iconset theme="QIcon::ThemeIcon::AddressBookNew"/>
+    </attribute>
     <attribute name="title">
-     <string>Players View</string>
+     <string>Players Hands</string>
     </attribute>
     <widget class="QGroupBox" name="player2_groupBox">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>30</y>
-       <width>161</width>
-       <height>121</height>
+       <x>90</x>
+       <y>40</y>
+       <width>150</width>
+       <height>120</height>
       </rect>
      </property>
      <property name="title">
       <string>Player 2</string>
      </property>
-     <widget class="QLineEdit" name="p2_lineEdit">
+     <widget class="QLabel" name="label_p2">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>30</y>
-        <width>113</width>
-        <height>26</height>
+        <width>60</width>
+        <height>80</height>
        </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
     <widget class="QGroupBox" name="player1_groupBox">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>161</width>
-       <height>121</height>
+       <x>20</x>
+       <y>210</y>
+       <width>150</width>
+       <height>120</height>
       </rect>
      </property>
      <property name="title">
       <string>Player 1</string>
      </property>
-     <widget class="QLineEdit" name="p1_lineEdit">
+     <widget class="QLabel" name="label_p1">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>30</y>
-        <width>113</width>
-        <height>26</height>
+        <width>60</width>
+        <height>80</height>
        </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -95,48 +119,255 @@
      <property name="geometry">
       <rect>
        <x>380</x>
-       <y>30</y>
-       <width>161</width>
-       <height>121</height>
+       <y>0</y>
+       <width>150</width>
+       <height>120</height>
       </rect>
      </property>
      <property name="title">
       <string>Player 3</string>
      </property>
-     <widget class="QLineEdit" name="p3_lineEdit">
+     <widget class="QLabel" name="label_p3">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>30</y>
-        <width>113</width>
-        <height>26</height>
+        <width>60</width>
+        <height>80</height>
        </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
     <widget class="QGroupBox" name="player4_groupBox">
      <property name="geometry">
       <rect>
-       <x>570</x>
-       <y>30</y>
-       <width>161</width>
-       <height>121</height>
+       <x>650</x>
+       <y>0</y>
+       <width>150</width>
+       <height>120</height>
       </rect>
      </property>
      <property name="title">
       <string>Player 4</string>
      </property>
-     <widget class="QLineEdit" name="p4_lineEdit">
+     <widget class="QLabel" name="label_p4">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>113</width>
-        <height>26</height>
+        <x>10</x>
+        <y>20</y>
+        <width>60</width>
+        <height>80</height>
        </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>0</y>
+       <width>1191</width>
+       <height>641</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>images/table.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="player5_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>910</x>
+       <y>50</y>
+       <width>150</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Player 5</string>
+     </property>
+     <widget class="QLabel" name="label_p5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>60</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="player6_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>1000</x>
+       <y>230</y>
+       <width>150</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Player 6</string>
+     </property>
+     <widget class="QLabel" name="label_p6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>60</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="player7_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>440</y>
+       <width>150</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Player 7</string>
+     </property>
+     <widget class="QLabel" name="label_p7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>60</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="player8_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>480</y>
+       <width>150</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Player 8</string>
+     </property>
+     <widget class="QLabel" name="label_p8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>60</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="player9_groupBox">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>480</y>
+       <width>150</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Player 9</string>
+     </property>
+     <widget class="QLabel" name="label_p9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>60</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../Images/Playing Cards/Playing Cards/SVG-cards-1.3/2_of_clubs.svg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <zorder>label</zorder>
+    <zorder>player2_groupBox</zorder>
+    <zorder>player1_groupBox</zorder>
+    <zorder>player3_groupBox</zorder>
+    <zorder>player4_groupBox</zorder>
+    <zorder>player5_groupBox</zorder>
+    <zorder>player6_groupBox</zorder>
+    <zorder>player7_groupBox</zorder>
+    <zorder>player8_groupBox</zorder>
+    <zorder>player9_groupBox</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
